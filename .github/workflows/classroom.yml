@@ -25,26 +25,20 @@ jobs:
         comparison-method: contains
         timeout: 10
         max-score: 1
-    - name: step2and3
-      id: step2and3
+    - name: step2
+      id: step2
       uses: classroom-resources/autograding-io-grader@v1
       with:
-        test-name: step2and3
+        test-name: step2
         setup-command: make tester
-        command: "./tester step2and3"
+        command: "./tester step2and3 -c step2"
         input: |-
           gold
-          1
-          asdf
-          silver
           9
-        expected-output: |-
-          The cost for your plan is $90.
-          Sorry, "asdf" is not a known plan.
-          The cost for your plan is $60.
+        expected-output: The cost for your plan is $35.
         comparison-method: contains
         timeout: 10
-        max-score: 2
+        max-score: 1
     - name: step4
       id: step4
       uses: classroom-resources/autograding-io-grader@v1
@@ -93,14 +87,32 @@ jobs:
         comparison-method: contains
         timeout: 10
         max-score: 1
+    - name: step3
+      id: step3
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: step3
+        setup-command: make tester
+        command: "./tester step2and3 -c step3"
+        input: |-
+          asdfjkl;
+          silver
+          9
+        expected-output: |-
+          Sorry, "asdfjkl;" is not a known plan.
+          The cost for your plan is $60.
+        comparison-method: contains
+        timeout: 10
+        max-score: 1
     - name: Autograding Reporter
       uses: classroom-resources/autograding-grading-reporter@v1
       env:
         STEP1_RESULTS: "${{steps.step1.outputs.result}}"
-        STEP2AND3_RESULTS: "${{steps.step2and3.outputs.result}}"
+        STEP2_RESULTS: "${{steps.step2.outputs.result}}"
         STEP4_RESULTS: "${{steps.step4.outputs.result}}"
         STEP5_RESULTS: "${{steps.step5.outputs.result}}"
         STEP6_RESULTS: "${{steps.step6.outputs.result}}"
         STEP7_RESULTS: "${{steps.step7.outputs.result}}"
+        STEP3_RESULTS: "${{steps.step3.outputs.result}}"
       with:
-        runners: step1,step2and3,step4,step5,step6,step7
+        runners: step1,step2,step4,step5,step6,step7,step3
