@@ -13,15 +13,15 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
-    - name: step6
-      id: step6
+    - name: step1
+      id: step1
       uses: classroom-resources/autograding-io-grader@v1
       with:
-        test-name: step6
+        test-name: step1
         setup-command: make tester
-        command: "./tester step6"
-        input: ''
-        expected-output: '458'
+        command: "./tester step1"
+        input: '50'
+        expected-output: Your grade is F
         comparison-method: contains
         timeout: 10
         max-score: 1
@@ -35,17 +35,12 @@ jobs:
         input: |-
           gold
           1
-          asdfklj
+          asdf
           silver
           9
         expected-output: |-
-          Enter the plan name: gold
-          Enter the number of months: 1
           The cost for your plan is $90.
-          Enter the plan name: asdfklj
-          Sorry, "asdfklj" is not a known plan.
-          Please enter a plan name: silver
-          Enter the number of months: 9
+          Sorry, "asdf" is not a known plan.
           The cost for your plan is $60.
         comparison-method: contains
         timeout: 10
@@ -58,9 +53,7 @@ jobs:
         setup-command: make tester
         command: "./tester step4"
         input: r
-        expected-output: |-
-          Enter a single lowercase letter: r
-          consonant
+        expected-output: consonant
         comparison-method: contains
         timeout: 10
         max-score: 1
@@ -76,11 +69,11 @@ jobs:
         comparison-method: contains
         timeout: 10
         max-score: 1
-    - name: step 6
-      id: step-6
+    - name: step6
+      id: step6
       uses: classroom-resources/autograding-io-grader@v1
       with:
-        test-name: step 6
+        test-name: step6
         setup-command: make tester
         command: "./tester step6"
         input: ''
@@ -96,20 +89,18 @@ jobs:
         setup-command: make tester
         command: "./tester step7"
         input: w
-        expected-output: |-
-          Enter a single lowercase letter: w
-          0
+        expected-output: '0'
         comparison-method: contains
         timeout: 10
         max-score: 1
     - name: Autograding Reporter
       uses: classroom-resources/autograding-grading-reporter@v1
       env:
-        STEP6_RESULTS: "${{steps.step6.outputs.result}}"
+        STEP1_RESULTS: "${{steps.step1.outputs.result}}"
         STEP2AND3_RESULTS: "${{steps.step2and3.outputs.result}}"
         STEP4_RESULTS: "${{steps.step4.outputs.result}}"
         STEP5_RESULTS: "${{steps.step5.outputs.result}}"
-        STEP-6_RESULTS: "${{steps.step-6.outputs.result}}"
+        STEP6_RESULTS: "${{steps.step6.outputs.result}}"
         STEP7_RESULTS: "${{steps.step7.outputs.result}}"
       with:
-        runners: step6,step2and3,step4,step5,step-6,step7
+        runners: step1,step2and3,step4,step5,step6,step7
