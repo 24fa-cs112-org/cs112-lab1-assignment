@@ -13,23 +13,127 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
-    - name: step1
-      id: step1
+    - name: step1A
+      id: step1A
       uses: classroom-resources/autograding-io-grader@v1
       with:
-        test-name: step1
+        test-name: step1A
         setup-command: make tester
         command: "./tester step1"
-        input: '50'
+        input: '100'
+        expected-output: Your grade is A
+        comparison-method: contains
+        timeout: 10
+        max-score: 1
+    - name: step1B
+      id: step1B
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: step1B
+        setup-command: make tester
+        command: "./tester step1"
+        input: '89'
+        expected-output: Your grade is B
+        comparison-method: contains
+        timeout: 10
+        max-score: 1
+    - name: step1C
+      id: step1C
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: step1C
+        setup-command: make tester
+        command: "./tester step1"
+        input: '79'
+        expected-output: Your grade is C
+        comparison-method: contains
+        timeout: 10
+        max-score: 1
+    - name: step1D
+      id: step1D
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: step1D
+        setup-command: make tester
+        command: "./tester step1"
+        input: '69'
+        expected-output: Your grade is D
+        comparison-method: contains
+        timeout: 10
+        max-score: 1
+    - name: step1F
+      id: step1F
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: step1F
+        setup-command: make tester
+        command: "./tester step1"
+        input: '59'
         expected-output: Your grade is F
         comparison-method: contains
         timeout: 10
         max-score: 1
-    - name: step2
-      id: step2
+    - name: step2Ag1
+      id: step2Ag1
       uses: classroom-resources/autograding-io-grader@v1
       with:
-        test-name: step2
+        test-name: step2Ag1
+        setup-command: make tester
+        command: "./tester step2and3 -c step2"
+        input: |-
+          silver
+          1
+        expected-output: The cost for your plan is $90.
+        comparison-method: contains
+        timeout: 10
+        max-score: 1
+    - name: step2Ag9
+      id: step2Ag9
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: step2Ag9
+        setup-command: make tester
+        command: "./tester step2and3 -c step2"
+        input: |-
+          silver
+          9
+        expected-output: The cost for your plan is $60.
+        comparison-method: contains
+        timeout: 10
+        max-score: 1
+    - name: step2Au1
+      id: step2Au1
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: step2Au1
+        setup-command: make tester
+        command: "./tester step2and3 -c step2"
+        input: |-
+          gold
+          1
+        expected-output: The cost for your plan is $90.
+        comparison-method: contains
+        timeout: 10
+        max-score: 1
+    - name: step2Au2
+      id: step2Au2
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: step2Au2
+        setup-command: make tester
+        command: "./tester step2and3 -c step2"
+        input: |-
+          gold
+          2
+        expected-output: The cost for your plan is $70.
+        comparison-method: contains
+        timeout: 10
+        max-score: 1
+    - name: step2Au9
+      id: step2Au9
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: step2Au9
         setup-command: make tester
         command: "./tester step2and3 -c step2"
         input: |-
@@ -39,15 +143,43 @@ jobs:
         comparison-method: contains
         timeout: 10
         max-score: 1
-    - name: step4
-      id: step4
+    - name: step3
+      id: step3
       uses: classroom-resources/autograding-io-grader@v1
       with:
-        test-name: step4
+        test-name: step3
+        setup-command: make tester
+        command: "./tester step2and3 -c step3"
+        input: |-
+          sliver!!!
+          grr
+          silver
+          9
+        expected-output: The cost for your plan is $60.
+        comparison-method: contains
+        timeout: 10
+        max-score: 1
+    - name: step4con
+      id: step4con
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: step4con
         setup-command: make tester
         command: "./tester step4"
         input: r
-        expected-output: consonant
+        expected-output: The letter is a consonant.
+        comparison-method: contains
+        timeout: 10
+        max-score: 1
+    - name: step4vow
+      id: step4vow
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: step4vow
+        setup-command: make tester
+        command: "./tester step4"
+        input: e
+        expected-output: The letter is a vowel.
         comparison-method: contains
         timeout: 10
         max-score: 1
@@ -71,15 +203,15 @@ jobs:
         setup-command: make tester
         command: "./tester step6"
         input: ''
-        expected-output: '458'
+        expected-output: '495'
         comparison-method: contains
         timeout: 10
         max-score: 1
-    - name: step7
-      id: step7
+    - name: step7con
+      id: step7con
       uses: classroom-resources/autograding-io-grader@v1
       with:
-        test-name: step7
+        test-name: step7con
         setup-command: make tester
         command: "./tester step7"
         input: w
@@ -87,32 +219,37 @@ jobs:
         comparison-method: contains
         timeout: 10
         max-score: 1
-    - name: step3
-      id: step3
+    - name: step7vow
+      id: step7vow
       uses: classroom-resources/autograding-io-grader@v1
       with:
-        test-name: step3
+        test-name: step7vow
         setup-command: make tester
-        command: "./tester step2and3 -c step3"
-        input: |-
-          asdfjkl;
-          silver
-          9
-        expected-output: |-
-          Sorry, "asdfjkl;" is not a known plan.
-          The cost for your plan is $60.
+        command: "./tester step7"
+        input: u
+        expected-output: '1'
         comparison-method: contains
         timeout: 10
         max-score: 1
     - name: Autograding Reporter
       uses: classroom-resources/autograding-grading-reporter@v1
       env:
-        STEP1_RESULTS: "${{steps.step1.outputs.result}}"
-        STEP2_RESULTS: "${{steps.step2.outputs.result}}"
-        STEP4_RESULTS: "${{steps.step4.outputs.result}}"
+        STEP1A_RESULTS: "${{steps.step1A.outputs.result}}"
+        STEP1B_RESULTS: "${{steps.step1B.outputs.result}}"
+        STEP1C_RESULTS: "${{steps.step1C.outputs.result}}"
+        STEP1D_RESULTS: "${{steps.step1D.outputs.result}}"
+        STEP1F_RESULTS: "${{steps.step1F.outputs.result}}"
+        STEP2AG1_RESULTS: "${{steps.step2Ag1.outputs.result}}"
+        STEP2AG9_RESULTS: "${{steps.step2Ag9.outputs.result}}"
+        STEP2AU1_RESULTS: "${{steps.step2Au1.outputs.result}}"
+        STEP2AU2_RESULTS: "${{steps.step2Au2.outputs.result}}"
+        STEP2AU9_RESULTS: "${{steps.step2Au9.outputs.result}}"
+        STEP3_RESULTS: "${{steps.step3.outputs.result}}"
+        STEP4CON_RESULTS: "${{steps.step4con.outputs.result}}"
+        STEP4VOW_RESULTS: "${{steps.step4vow.outputs.result}}"
         STEP5_RESULTS: "${{steps.step5.outputs.result}}"
         STEP6_RESULTS: "${{steps.step6.outputs.result}}"
-        STEP7_RESULTS: "${{steps.step7.outputs.result}}"
-        STEP3_RESULTS: "${{steps.step3.outputs.result}}"
+        STEP7CON_RESULTS: "${{steps.step7con.outputs.result}}"
+        STEP7VOW_RESULTS: "${{steps.step7vow.outputs.result}}"
       with:
-        runners: step1,step2,step4,step5,step6,step7,step3
+        runners: step1A,step1B,step1C,step1D,step1F,step2Ag1,step2Ag9,step2Au1,step2Au2,step2Au9,step3,step4con,step4vow,step5,step6,step7con,step7vow
