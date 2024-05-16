@@ -35,16 +35,8 @@ TEST_CASE("step6") {
 
 TEST_CASE("step7") {
     cout << "\nStep 7. ---------------------------------\n" << endl;
-    char letter;
-    cout << "Enter a single lowercase letter: ";
-    cin >> letter;
-    // cout << isvowel(letter);
-}
-
-TEST_CASE("step8") {
-    cout << "\nStep 8. ---------------------------------\n" << endl;
     // string plan = getPlan();
     // int months = getMonths();
     // int cost = computeCost(plan, months);
-    // cout << "Cost of the plan = $" << cost << "." << endl;
+    // cout << "The cost for your plan = $" << cost << "." << endl;
 }
