@@ -171,8 +171,8 @@ To share access to your repo with your partner, do the following:
 This lab is worth 16 pts:
 
 * 2 points for each of the 7 steps
-* 1 pt: output is correct and 
-* 1 pt: you followed the directions
+  * 1 pt: output is correct and 
+  * 1 pt: you followed the directions
 * 2 pt for perfect indentation and good variable names, function names, and comments (i.e., hospitable code). You should write a comment in your code only when the following block of code is not obvious to the trained reader. You should not write a comment for each line of code.
   
 Ways students have lost points in the past:
